@@ -127,6 +127,8 @@ p a:hover, p a:focus, p a:active{
 }
 
 /*excerpts etc on blog page*/
+
+/*
 .moreLink{
 	display: block;
 	text-align: right;
@@ -138,13 +140,24 @@ p a:hover, p a:focus, p a:active{
 .moreLink:hover, .moreLink:focus, .moreLink:active{
 	color: #000;
 }
+*/
 
-div.postExcerpt{
-	/*margin-top: 1em;*/
-	/*margin-bottom: 1em;*/
+.postExcerpt{
 	padding-top: 1em;
 	padding-bottom: 1em;
 	border-top: 1px solid #777;
+}
+
+.postExcerpt a, .postExcerpt span, .postExcerpt p{
+	display: inline;
+}
+
+.postExcerpt span{
+	color: #ff3c1a;
+}
+
+.postExcerpt:hover span, .postExcerpt:focus span, .postExcerpt:active span{
+	color: #000;
 }
 
 
@@ -157,6 +170,7 @@ footer{
 	padding: 0 10px;
 	border-top: 1px solid #777;
 	padding-top: 1em;
+	text-align: right
 }
 
 
