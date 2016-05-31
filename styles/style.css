@@ -128,20 +128,6 @@ p a:hover, p a:focus, p a:active{
 
 /*excerpts etc on blog page*/
 
-/*
-.moreLink{
-	display: block;
-	text-align: right;
-	font-size: 2em;
-	color: #ff3c1a;
-	line-height: 0.7em;
-}
-
-.moreLink:hover, .moreLink:focus, .moreLink:active{
-	color: #000;
-}
-*/
-
 .postExcerpt{
 	padding-top: 1em;
 	padding-bottom: 1em;
@@ -160,7 +146,6 @@ p a:hover, p a:focus, p a:active{
 	color: #000;
 }
 
-
 /*footer stuff*/
 footer{
 	box-sizing: border-box;
@@ -169,6 +154,7 @@ footer{
 	margin: auto;
 	padding: 0 10px;
 	border-top: 1px solid #777;
+	border-right: 1px solid #777;
 	padding-top: 1em;
 	text-align: right
 }

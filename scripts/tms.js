@@ -19,13 +19,10 @@ new p5(function(p){
 	var isPlaying = false
 
 	//sequencer stuff
-	var framerate = 60, //idealized - timing won't be tight
-		tempo = 80, 
-		sixteenth, //how many frames is a 16th at the given tempo?
-		offset = 0, //the current offset for the sequence track (in array places)
+	var offset = 0, //the current offset for the sequence track (in array places)
 		counters = [0, 0] //place in tm sequence
 
-	var slider
+	var slider, speedSlider
 
 	p.setup = function(){
 
@@ -39,48 +36,38 @@ new p5(function(p){
 		//use holderSize.width for both - make canvas square
 		//(holder.height returns height of 100px, unless css size is absolute)
 		canvas = p.createCanvas(holderSize.width, holderSize.width)
+		p.frameRate(5)
 		p.textFont('monospace')
 		p.textSize(16)
+
 
 		synths[0] = new p.Pling()
 		synths[1] = new p.Pling()
 
-		tms = thue_morse.compute(7)
+		tms = thue_morse.compute(6)
 		tmsText = tms.join(' ')
-		sixteenth = tempoCalc.calc(framerate, tempo, 16) //calc frames per 16th
-
-		slider = new p.Slider(1, p.height - 42, p.width - 3, 40, 36, 72, root)
+		
+		noteSlider = new p.Slider(1, p.height - 84, p.width - 3, 40, 36, 72, root, 'root midi note: ')
+		speedSlider = new p.Slider(1, p.height - 42, p.width - 3, 40, 4, 11, 5, 'speed: ')
 
 		//initialise motif, hzs and counters
 		p.initNotes()
-
-		//log out vars
-		console.log('thue-morse seq: ' + tms)
-		console.log('16th note is ' + sixteenth + ' frames')
-		console.log('motif: ' + motif)
-		console.log('scale (in hz): ' + hzs)
-		console.log('track 1: ' + tracks[0])
-		console.log('track 2: ' + tracks[1])
 
 		//bind listener functions to clicking on this canvas element
 		//e.g. - canvas.mousePressed(p.somefunction)
 		//lots more listed at http://p5js.org/reference/#/p5.Element
 		canvas.mousePressed(p.play)
-		// canvas.mouseReleased(p.sliderUnEdit)
-		//canvas.touchMoved(p.sliderCheck)
 	}
 
 	//responsively resize canvas if window is resized
 	p.windowResized = function(){
 		holderSize = holder.size()
 		p.resizeCanvas(holderSize.width, holderSize.width)
-		slider.y = p.height - 42
-		slider.w = p.width - 3 
 	}
 
 	p.draw = function(){
 		if(isPlaying){
-			if(p.frameCount % sixteenth == 0){ //each sixteenth note
+			// if(p.frameCount % 2 == 0){ //each sixteenth note
 				//play sounds		
 				for(var i = 0; i < counters.length; i++){
 					if(tms[counters[i]] == 1){
@@ -117,33 +104,37 @@ new p5(function(p){
 					p.stroke(255)
 					for(var j = 0; j < waves[i].length; j++){
 						var x = (p.map(j, 0, waves[i].length, 0, p.width/2)) + p.width/2 * i
-						var y = p.map(waves[i][j], -0.6, 0.6, 0, p.height)
+						var y = p.map(waves[i][j], -1, 1, 0, p.height)
 						p.vertex(x, y)
 					}
 					p.endShape()
 					p.pop()
 				}
 
-				p.drawText(dispText, 16, 180, p.LEFT, 0, 10, p.width, p.height)
-				p.drawText(noteText, 24, 200, p.CENTER, 0, p.height * 0.667, p.width, 72)
+				p.drawText(dispText, 16, 180, p.LEFT, 8, 10, p.width, p.height)
+				p.drawText(noteText, 72, 200, p.CENTER, 0, p.height * 0.667, p.width, 72)
 
-				slider.render()
-			}
+				noteSlider.render()
+				speedSlider.render()
+			// }
 		} else {
 			//just draw black if not playing
 			p.background(0)
-			slider.render()
+			noteSlider.render()
+			speedSlider.render()
 		}
-		if(slider.isEditing){
-			root = slider.update()
+		if(noteSlider.isEditing){
+			root = noteSlider.update()
 			hzs = p.makeHz(motif, root)
-		}				
+		}
+		if(speedSlider.isEditing){
+			p.frameRate(speedSlider.update())
+		}
 	}
 
 	p.play = function(){
 		//re-randomise notes and counters when sequncer stops
-		console.log('hello play')
-		if(p.mouseY < p.height - slider.h){
+		if(p.mouseY < p.height - noteSlider.h * 2){
 			if(isPlaying){
 				p.initNotes()
 			}
@@ -152,16 +143,18 @@ new p5(function(p){
 	}
 
 	p.mouseReleased = function(){
-		console.log('hello unedit')
-		slider.isEditing = false
+		noteSlider.isEditing = false
+		speedSlider.isEditing = false
 	}
 
 	p.mouseDragged = function(){
-		if(p.mouseX > slider.x && p.mouseX < slider.x + slider.w){
-			if(p.mouseY > slider.y && p.mouseY < slider.y + slider.h){
-				slider.isEditing = true
+		if(p.mouseX > noteSlider.x && p.mouseX < noteSlider.x + noteSlider.w){
+			if(p.mouseY > noteSlider.y && p.mouseY < noteSlider.y + noteSlider.h){
+				noteSlider.isEditing = true
+			} else if(p.mouseY > speedSlider.y && p.mouseY < speedSlider.y + speedSlider.h){
+				speedSlider.isEditing = true
 			}
-		} 
+		}
 	}
 
 	//----------
@@ -198,7 +191,7 @@ new p5(function(p){
 		}
 	}
 
-	p.Slider = function(_x, _y, _w, _h, _min, _max, _init){
+	p.Slider = function(_x, _y, _w, _h, _min, _max, _init, _label){
 		this.x = _x
 		this.y = _y
 		this.w = _w
@@ -206,6 +199,7 @@ new p5(function(p){
 		this.min = _min
 		this.max = _max
 		this.val = Math.floor(_init)
+		this.label = _label
 		this.isEditing = false
 
 		this.update = function(){
@@ -221,11 +215,11 @@ new p5(function(p){
 			p.rect(0, 0, this.w, this.h)
 			p.noStroke()
 			p.fill(127)
-			p.rect(2, 2, p.map(this.val, this.min, this.max, 0, this.w - 4), this.h - 3)
+			p.rect(2, 2, p.map(this.val, this.min, this.max, 0, this.w - 3), this.h - 3)
 			p.noStroke()
 			p.fill(255)
 			p.textSize(12)
-			var label = 'root midi note: ' + String(Math.floor(this.val))
+			var label = this.label + String(Math.floor(this.val))
 			p.text(label, 5, this.h - 5)
 			p.pop()
 		}
@@ -289,10 +283,9 @@ new p5(function(p){
 	}
 
 	p.buildNoteText = function(){
-		var ret = p.equalLen(hzs[note] * tms[counters[0]], 5)
-		ret += 'hz\t'
-		ret += p.equalLen(hzs[note] * tms[counters[1]], 5)
-		ret += 'hz'
+		var ret = p.equalLen(hzs[note] * tms[counters[0]], 6)
+		ret += '\t'
+		ret += p.equalLen(hzs[note] * tms[counters[1]], 6)
 		return ret
 	}
 
@@ -341,31 +334,5 @@ var thue_morse = (function(){
 			return numbers
 		},
 	}
-
-}())
-
-//returns how many frames is one step of sequencer
-/*
-bpm/60 seconds = beats per second e.g. 120bpm/60 = 2
-framerate/beats per second = frames per beat e.g. 60/2 = 30 frames/beat
-note/4 = notes per beat (e.g. 16th/4 = 4 16ths per beat)
-and therefore frames per note = fpb/notes per beat
-*/
-
-var tempoCalc = (function(){
-	
-	var bps, fpb, npb, fpn
-
-	var ret = {}
-
-	ret.calc = function(fr, bpm, note){
-		bps = bpm/60
-		fpb = fr/bps
-		npb = note/4
-		fpn = Math.floor(fpb/npb)
-		return fpn
-	}
-	
-	return ret
 
 }())
