@@ -44,7 +44,7 @@ new p5(function(p){
 		synths[0] = new p.Pling()
 		synths[1] = new p.Pling()
 
-		tms = thue_morse.compute(6)
+		tms = thue_morse.compute(7)
 		tmsText = tms.join(' ')
 		
 		noteSlider = new p.Slider(1, p.height - 84, p.width - 3, 40, 36, 72, root, 'root midi note: ')
