@@ -3,8 +3,7 @@
 
 new p5(function(p){
 
-	//variables for the canvas and holder (i.e. parent div)
-	var holder, holderSize, canvas
+	var canvas
 
 	var car, mod1, mod2, lpf, verb
 
@@ -21,18 +20,8 @@ new p5(function(p){
 
 	p.setup = function(){
 
-		//get the parent div for the canvas
-		holder = p.select('#sketchContainer')
-		
-		//get size of parent div
-		var holderSize = holder.size()
-		
-		//set canvas to with of parent div - makes sketch responsive
-		//use holderSize.width for both - make canvas square
-		//(holder.height returns height of 100px)
-		canvas = p.createCanvas(holderSize.width, holderSize.width * 0.6)
+		canvas = p.createCanvas(320, 320)
 		p.frameRate(30)
-		p.colorMode(p.HSB, 100)
 		p.textFont('monospace')
 		p.textSize(16)
 		
@@ -82,15 +71,9 @@ new p5(function(p){
 	}
 
 	p.draw = function(){
-		p.background(0, 0, 50)
+		p.background(127, 31)
 		p.drawSpec()
-		p.displayText()
-	}
-
-	//responsively resize canvas if window is resized
-	p.windowResized = function(){	
-		holderSize = holder.size()
-		p.resizeCanvas(holderSize.width,  holderSize.width * 0.6)
+		// p.displayText()
 	}
 
 	p.updateSynth = function(){
@@ -150,15 +133,15 @@ new p5(function(p){
 	}
 
 	p.drawSpec = function(){
-		var sp = fft.analyze().splice(0, 400)
+		var sp = fft.analyze().splice(0, 320)
 		p.push()
 		p.noFill()
-		p.stroke(0, 0, 100)
+		p.stroke(255)
 		var w = p.width / sp.length
 		for(var i = 0, len = sp.length; i < len; i++){
-			var x = p.map(i, 0, len, 0, p.width)
+			// var x = p.map(i, 0, len, 0, p.width)
 			var y = (p.map(sp[i], 255, 0, 0, p.height))
-			p.line(x, y, x, p.height)
+			p.line(i, y, i, p.height)
 		}
 		p.pop()
 	}

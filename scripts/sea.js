@@ -20,13 +20,13 @@ new p5(function(p){
 
 	p.setup = function(){
 		//get the parent div for the canvas
-		holder = p.select('#sketchContainer')
+		// holder = p.select('#sketchContainer')
 		//get size of parent div
-		var holderSize = holder.size()
+		// var holderSize = holder.size()
 		//set canvas to with of parent div - makes sketch responsive
 		//make canvas square
-		canvas = p.createCanvas(holderSize.width, holderSize.width) 
-		p.frameRate(24)
+		canvas = p.createCanvas(320, 320) 
+		// p.frameRate(24)
 		//global reverb
 		verb = new p5.Reverb()
 		p.createPartials(function(){
