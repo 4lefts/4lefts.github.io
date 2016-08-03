@@ -23,6 +23,11 @@ body {
 }
 
 /*type etc*/
+
+h1, h2, h3, h4, h5, p {
+	color: #333;
+}
+
 h1{
 	margin: 0.2em 0 0.2em 0;
 }
@@ -49,14 +54,17 @@ h5{
 	position: relative;
 	padding: 0 10px;
 	z-index: 2;
-	font-family: 'Roboto Mono', sans-serif;
+	text-align: center;
 	color: #000;
 	background: rgba( 0, 0, 0, 0);
 }
 
+.logo h1{
+	font-size: 30vmin;
+}
+
 .logo span{
-	color: #777;
-	text-transform: lowercase;
+	color: #ff3c1a;
 }
 
 #content{
@@ -353,12 +361,8 @@ https://www.youtube.com/user/DevTipsForDesigners/
 		font-size: 20px;
 	}
 
-	.logo {
-		font-size: 2em;
-	}
-
-	.logo p {
-		font-size: 0.5em;
+	.logo h1{
+		font-size: 20vmin;
 	}
 
 	.banner{
