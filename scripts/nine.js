@@ -65,7 +65,7 @@ new p5(function(p){
 		mod2.disconnect()
 		mod1.freq(mod2)
 
-		verb.process(lpf, 2, 3)
+		verb.process(lpf, 2, 3)	
 
 		fft = new p5.FFT()
 
