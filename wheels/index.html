@@ -27,8 +27,10 @@
 			<p><p>A drone synthesizer <em>very</em> loosely based on the idea of Tibetan singing bowls.</p>
 <p><a href="https://en.wikipedia.org/wiki/Singing_bowl">Tibetan singing bowls</a>. That wikipedia article says that bowls usually produce second and third harmonics: I should probably experiment with the synthesis. Click each wheel to start/stop. The frequency of the fundamental bowl is random between 100 and 400 hz, and the second and third bowls are tuned to the perfect fifth and the either major or minor third using <a href="https://en.wikipedia.org/wiki/Pythagorean_tuning">Pythagorean tuning</a>. Select a major or minor key with the button.</p>
 <p>The colour palette came from the excellent <a href="http://lolcolors.com">lolcolors</a>, and I totally stole the slider button idea from <a href="https://www.youtube.com/user/DevTipsForDesigners/">Devtips’ CSS animations series</a>. Travis Neilson makes the best tutorials there are.</p>
-<h2 id="a-note-on-performance">A note on performance</h2>
+<h3 id="a-note-on-performance">A note on performance</h3>
 <p>This program uses <a href="https://p5js.org">p5js</a> and <a href="http://p5js.org/reference/#/libraries/p5.sound">p5js.sound</a>. They’re great libraries, but I’m finding the performance on mobile to be pretty rough. I’m assuming this is down to me doing something wrong. This time, rather than responsively resize the p5 canvas depending on viewport width, I’ve set the size to a fixed 320 pixels, to see if this helps. 320 pixels is not a lot of space to work with, but if these apps are going to work on mobile, then the gui/visualisation will have to fit in that space anyway.</p>
+<h3 id="edit">Edit</h3>
+<p>Apparently, this is all too much for a humble phone. The canvas size might help a little, but not much. There are 9 sine oscillators (carrier, modulator and amplitude lfo for each wheel) here, and the audio breaks up a lot on my android phone. I’m not too sure where to go from here. I might try using tone.js next, skip some of the procedural drawing in p5, and use html elements for the GUI.</p>
 <p><a href="https://github.com/4lefts/wheels">source here</a></p>
 </p>
 		</div><!--end content div> -->

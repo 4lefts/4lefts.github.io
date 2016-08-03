@@ -7,7 +7,7 @@ possible notes = C (24) to C (48) - therefore covers 2 octaves
 */
 
 new p5(function(p){
-	var holder, holderSize, canvas //holder is the parent div
+	var canvas 
 	var partials = []
 	var reverb
 
@@ -19,29 +19,23 @@ new p5(function(p){
 	var isPlaying = false
 
 	p.setup = function(){
-		//get the parent div for the canvas
-		// holder = p.select('#sketchContainer')
-		//get size of parent div
-		// var holderSize = holder.size()
-		//set canvas to with of parent div - makes sketch responsive
-		//make canvas square
-		canvas = p.createCanvas(320, 320) 
-		// p.frameRate(24)
+	
+		canvas = p.createCanvas(320, 320)
 		//global reverb
 		verb = new p5.Reverb()
 		p.createPartials(function(){
 			p.randomiseHz(100) //100% chance
 		})
 		//bind startStop function to clicking on this canvas element
-		canvas.touchStarted(p.startStop)
+		canvas.mouseClicked(p.startStop)
 		p.textFont('monospace')
 	}
 
 	//responsively resize canvas if window is resized
-	p.windowResized = function(){
-		holderSize = holder.size()
-		p.resizeCanvas(holderSize.width, holderSize.width)
-	}
+	// p.windowResized = function(){
+	// 	holderSize = holder.size()
+	// 	p.resizeCanvas(holderSize.width, holderSize.width)
+	// }
 
 	//main draw loop
 	p.draw = function(){

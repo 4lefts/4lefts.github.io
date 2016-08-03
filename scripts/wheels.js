@@ -14,6 +14,7 @@ new p5(function(p){
 	
 	//synth variables
 	var wheels,
+		verb, //global reverb
 		synths = [],
 		fund = (Math.random() * 300) + 100,
 		//intervals are tuned using just intonation
@@ -23,8 +24,8 @@ new p5(function(p){
 			[fund, fund * (81 / 64), fund * (3/2)], 
 			[fund, fund * (32 / 27), fund * (3/2)]
 		]
-		currentScale = 0 // 0 or 1 to choose from above
-		pitches = scales[currentScale]
+		currentScale = 0, // 0 or 1 to choose from above
+		pitches = scales[currentScale],
 		amplitude = 0.3
 
 
@@ -47,9 +48,12 @@ new p5(function(p){
 		rad = calcRad(unit)
 		wheels = calcWheels(rad, angle1, angle2, pitches, amplitude)
 		console.log(wheels)
+		verb = new p5.Reverb
 		for(var i = wheels.length - 1; i >= 0; i--){
 			synths[i] = new WheelSynth(wheels[i].f, wheels[i].a, wheels[i].d, wheels[i].mf, wheels[i].mp, wheels[i].pan)
 		}
+
+		console.log(synths)
 
 		//make div to display fund freq
 		var hzDisplay = p.createDiv(fund.toFixed(2) + 'hz')
@@ -58,7 +62,7 @@ new p5(function(p){
 		//bind listener functions to clicking on this canvas element
 		canvas.mouseClicked(canvasClicked)
 
-		//create scalce button and bind event to it
+		//create scale button and bind event to it
 		makeScaleButton()
 		button.mouseClicked(function(){
 			currentScale = buttonClicked(currentScale)
@@ -124,8 +128,7 @@ new p5(function(p){
 		this.car = new p5.Oscillator('sine')
 		this.mod = new p5.Oscillator('sine')
 		this.ampLFO = new p5.Oscillator('sine') 
-		this.verb = new p5.Reverb
-
+		
 		this.ampLFO.disconnect()
 		this.ampLFO.start()
 		this.ampLFO.amp(0)
@@ -145,9 +148,11 @@ new p5(function(p){
 		this.car.freq(this.freq)
 		this.car.freq(this.mod)
 
-		this.verb.process(this.car, 2, 3) //time and decay %
+		//reverb is global
+		verb.process(this.car, 2, 3) //time and decay %
 	
 		this.startStop = function(idx, isP){
+			console.log(synths)
 			this.ampLFO.amp(isP, 0.1)
 		}
 

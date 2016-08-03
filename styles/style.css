@@ -285,10 +285,7 @@ input.slider:focus::-ms-fill-upper{
 animated button styling, from 
 https://www.youtube.com/user/DevTipsForDesigners/
 */
-/*button.style('background-color', palette[3])*/
-		/*handle.style('background-color: red')*/
-		/*bLeft.style('color: white')*/
-		/*bRight.style('color: white')*/
+
 #btn{
 	margin: 10px auto;
 	display: flex;
