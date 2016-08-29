@@ -1,0 +1,60 @@
+/*
+animated button styling, from 
+https://www.youtube.com/user/DevTipsForDesigners/
+*/
+#wheelsBtn {
+  margin: 10px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100px;
+  height: 50px;
+  border-radius: 25px;
+  background-color: #56445D;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#btnL, #btnR {
+  line-height: 50px;
+  color: white;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-weight: 300;
+  width: 50%;
+}
+
+#buttonHandle {
+  cursor: pointer;
+  width: 46px;
+  height: 46px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border-radius: 100%;
+  background-color: white;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  line-height: 50px;
+  -webkit-transition: -webkit-transform ease-in-out 0.3s;
+  transition: -webkit-transform ease-in-out 0.3s;
+  transition: transform ease-in-out 0.3s;
+  transition: transform ease-in-out 0.3s, -webkit-transform ease-in-out 0.3s;
+}
+
+#wheelsBtn.is-transitioned #buttonHandle {
+  -webkit-transform: translateX(50px);
+  transform: translateX(50px);
+}
+
+.wheelsLabel {
+  width: 100px;
+  margin: 10px auto;
+  text-align: center;
+  font-family: sans-serif;
+  font-weight: 300;
+  background-color: #56445D;
+  color: white;
+  line-height: 50px;
+  border-radius: 25px;
+}

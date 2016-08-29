@@ -1,377 +1,200 @@
 /*clearfix not used at the minute, but kept around in case*/
-.cf:after{
-	content: '';
-	display: table;
-	clear: both;
+.cf:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 
 /*general sizing*/
 body {
-	padding: 0; 
-	margin: 0;
-	color: #000;
-	background: #fff;
-	font-family: 'Roboto', sans-serif;
+  padding: 0;
+  margin: 0;
+  color: #000;
+  background: #fff;
+  font-weight: 100;
+  font-family: 'Roboto', sans-serif;
 }
 
-#container{
-	box-sizing: border-box;
-	max-width: 700px;
-	min-height: 100vh;
-	background: #fff;
-	margin: 0 auto;
+#container {
+  box-sizing: border-box;
+  max-width: 700px;
+  min-height: 100vh;
+  background: #fff;
+  margin: 0 auto;
 }
 
 /*type etc*/
-
 h1, h2, h3, h4, h5, p {
-	color: #333;
+  color: #333;
 }
 
-h1{
-	margin: 0.2em 0 0.2em 0;
+h1 {
+  margin: 0.2em 0 0.2em 0;
 }
 
-h2{
-	margin: 0.6em 0 0.2em 0;
+h2 {
+  margin: 0.6em 0 0.2em 0;
 }
 
-h3{
-	margin: 0.4em 0 0.1em 0;
-
+h3 {
+  margin: 0.4em 0 0.1em 0;
 }
 
-h5{
-	margin: 0.4em 0 0.5em 0;
+h5 {
+  margin: 0.4em 0 0.5em 0;
 }
 
-.banner{
-	position: relative;
-	min-height: 300px;
+.banner {
+  position: relative;
+  min-height: 300px;
 }
 
-.logo{
-	position: relative;
-	padding: 0 10px;
-	z-index: 2;
-	text-align: center;
-	color: #000;
-	background: rgba( 0, 0, 0, 0);
+.logo {
+  position: relative;
+  padding: 0 10px;
+  z-index: 2;
+  text-align: center;
+  color: #000;
+  background: transparent;
 }
 
-.logo h1{
-	font-size: 30vmin;
+.logo h1 {
+  font-size: 30vmin;
 }
 
-.logo span{
-	color: #ff3c1a;
+.logo span {
+  color: #ff3c1a;
 }
 
-#content{
-	padding: 0 10px;
+#content {
+  padding: 0 10px;
 }
 
-#sketchContainer{
-	width: 100%;
-	max-width:  700px;
-	margin: 0 auto;
-	position: relative;
-	text-align: center;
+#sketchContainer {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  text-align: center;
 }
 
 /*styling homepage banner*/
-#bannerSketchContainer{
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+#bannerSketchContainer {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.date{
-	text-align: right;
+.date {
+  text-align: right;
 }
 
-p{
-	margin: 0;
-	padding-bottom: 0.8em;
-	line-height: 1.5em;
+p {
+  margin: 0;
+  padding-bottom: 0.8em;
+  line-height: 1.5em;
 }
 
-a{
-	color: #000;
-	text-decoration: none;
+a {
+  color: #000;
+  text-decoration: none;
 }
 
-a:hover, a:focus, a:active{
-	color: #ff3c1a;
+a:hover, a:focus, a:active {
+  color: #ff3c1a;
 }
 
 /*nav and header*/
-header{
-	box-sizing: border-box;
-	width: 100%;
-	text-align: center;
-	margin-bottom: 2em;
-	padding: 0 10px;
+header {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 2em;
+  padding: 0 10px;
 }
 
 nav {
-	margin: 0 auto;
+  margin: 0 auto;
 }
 
-nav a{
-	box-sizing: border-box;
-	display: inline-block;
-	text-align: center;
-	padding: 10px 20px;
-	border-right: 1px solid #777;
+nav a {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  padding: 10px 20px;
+  border-right: 1px solid #777;
 }
 
-nav a:last-child{
-	border: none;
+nav a:last-child {
+  border: none;
 }
 
-nav a.current{
-	border-bottom: 1px solid #777;
+nav a.current {
+  border-bottom: 1px solid #777;
 }
 
 /*links*/
-p a{
-	text-decoration: underline;
-	color: #ff3c1a;
+p a {
+  text-decoration: underline;
+  color: #ff3c1a;
 }
 
-p a:hover, p a:focus, p a:active{
-	color: #000;
+p a:hover, p a:focus, p a:active {
+  color: #000;
 }
 
 /*excerpts etc on blog page*/
-
-.postExcerpt{
-	padding-top: 1em;
-	padding-bottom: 1em;
-	border-top: 1px solid #777;
+.postExcerpt {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-top: 1px solid #777;
 }
 
-.postExcerpt a, .postExcerpt span, .postExcerpt p{
-	display: inline;
+.postExcerpt a, .postExcerpt span, .postExcerpt p {
+  display: inline;
 }
 
-.postExcerpt span{
-	color: #ff3c1a;
+.postExcerpt span {
+  color: #ff3c1a;
 }
 
-.postExcerpt:hover span, .postExcerpt:focus span, .postExcerpt:active span{
-	color: #000;
+.postExcerpt:hover span, .postExcerpt:focus span, .postExcerpt:active span {
+  color: #000;
 }
 
 /*footer stuff*/
-footer{
-	box-sizing: border-box;
-	max-width: 700px;
-	background: #fff;
-	margin: auto;
-	padding: 0 10px;
-	border-top: 1px solid #777;
-	padding-top: 1em;
-	text-align: right
+footer {
+  box-sizing: border-box;
+  max-width: 700px;
+  background: #fff;
+  margin: auto;
+  padding: 0 10px;
+  border-top: 1px solid #777;
+  padding-top: 1em;
+  text-align: right;
 }
-
-/*
-slider styling, from:
-https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
-*/
-
-/*styling for labels*/
-.sliderLabel{
-	margin: 15px 2.5% 0 2.5%;
-	text-align: left;
-	text-transform: uppercase;
-}
-
-input.slider{
-	margin: 20px 2.5% 20px 2.5%;
-	width: 95%;
-
-	/*base styles*/
-	-webkit-appearance: none;
-	background: transparent;
-}
-
-input.slider:focus{
-	outline: none;
-}
-
-input.slider::-webkit-slider-thumb{
-	-webkit-appearance: none;
-	border: 2px solid #777;
-	border-radius: 4px;
-	width: 30px;
-	height: 30px;
-	background: #fff;
-	box-shadow: 1px 2px 2px #999;
-	/*for chrome only*/
-	margin-top: -14px;
-	cursor: pointer;
-}
-
-input.slider::-moz-range-thumb{
-	border: 2px solid #777;
-	border-radius: 4px;
-	width: 30px;
-	height: 30px;
-	background: #fff;
-	box-shadow: 1px 2px 2px #999;
-	cursor: pointer;
-}
-
-input.slider::-ms-thumb{
-	border: 2px solid #777;
-	border-radius: 4px;
-	width: 30px;
-	height: 30px;
-	background: #fff;
-	box-shadow: 1px 2px 2px #999;
-	cursor: pointer;
-}
-
-input.slider::-webkit-slider-runnable-track{
-	width: 100%;
-	height: 1px;
-	cursor: pointer;
-	background: #777;
-	border-radius: 1px;
-}
-
-input.slider:focus::-webkit-slider-runnable-track{
-	background: #ff3c1a;
-}
-
-input.slider::-moz-range-track{
-	width: 100%;
-	height: 1px;
-	cursor: pointer;
-	background: #777;
-	border-radius: 1px;
-}
-
-input.slider:focus::-moz-range-track{
-	background-color: #ff3c1a;
-}
-
-input.slider::-ms-track{
-	width: 100%;
-	height: 1px;
-	cursor: pointer;
-
-	background: transparent;
-	border-color: transparent;
-	color: transparent;
-}
-
-input.slider::-ms-fill-lower{
-	background: #777;
-	border-radius: 1px;
-}
-
-input.slider:focus::-ms-fill-lower{
-	background-color: #ff3c1a;
-}
-
-input.slider::-ms-fill-upper{
-	background: #777;
-	border-radius: 1px;
-}
-
-input.slider:focus::-ms-fill-upper{
-	background-color: #ff3c1a;
-}
-
-/*
-animated button styling, from 
-https://www.youtube.com/user/DevTipsForDesigners/
-*/
-
-#btn{
-	margin: 10px auto;
-	display: flex;
-	width: 100px;
-	height: 50px;
-	border-radius: 25px;
-	background-color: #56445D;
-	text-align: center;
-	position: relative;
-	overflow: hidden;
-}
-
-
-#btnL, #btnR{
-	line-height: 50px;
-	color: white;
-	font-family: sans-serif;
-	text-transform: uppercase;
-	font-weight: 300;
-	width: 50%;
-}
-
-#buttonHandle{
-	cursor: pointer;
-	width: 46px;
-	height: 46px;
-	position: absolute;
-	top: 2px;
-	left: 2px;
-	border-radius: 100%;
-	background-color: white;
-	box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-	line-height: 50px;
-	-webkit-transition: -webkit-transform ease-in-out 0.3s;
-	transition: -webkit-transform ease-in-out 0.3s;
-	transition: transform ease-in-out 0.3s;
-	transition: transform ease-in-out 0.3s, -webkit-transform ease-in-out 0.3s;
-}
-
-#btn.is-transitioned #buttonHandle{
-	-webkit-transform: translateX(50px);
-	transform: translateX(50px);
-}
-
-.label{
-	width: 100px;
-	margin: 10px auto;
-	text-align: center;
-	font-family: sans-serif;
-	font-weight: 300;
-	background-color: #56445D;
-	color: white;
-	line-height: 50px;
-	border-radius: 25px;
-}
-
 
 /*only add border to bigger screens*/
-@media (min-width: 700px){
-	#container{
-		border-left: 1px solid #777;
-	}
-
-	body{
-		font-size: 20px;
-	}
-
-	.logo h1{
-		font-size: 20vmin;
-	}
-
-	.banner{
-		min-height: 500px;
-	}
-	.thingLink div h2{
-		font-size: 2.4em;
-	}
-	footer{
-		border-right: 1px solid #777;
-	}
+@media (min-width: 700px) {
+  #container {
+    border-left: 1px solid #777;
+  }
+  body {
+    font-size: 20px;
+  }
+  .logo h1 {
+    font-size: 20vmin;
+  }
+  .banner {
+    min-height: 500px;
+  }
+  .thingLink div h2 {
+    font-size: 2.4em;
+  }
+  footer {
+    border-right: 1px solid #777;
+  }
 }

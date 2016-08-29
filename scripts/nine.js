@@ -60,9 +60,9 @@ new p5(function(p){
 
 		for(var i = 0; i < numSliders; i++){
 			sliderLabels[i] = p.createElement('h5', sliderLabelTexts[i])
-			sliderLabels[i].addClass('sliderLabel')
+			sliderLabels[i].addClass('nineSliderLabel')
 			sliders[i] = p.createSlider(0, 127, 0, 1)
-			sliders[i].addClass('slider')
+			sliders[i].addClass('nineSlider')
 			sliders[i].input(p.updateSynth)
 		}
 		//set filter cutoff to 127 (i.e default to fully open)

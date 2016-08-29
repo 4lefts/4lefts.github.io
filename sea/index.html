@@ -5,9 +5,8 @@
 	<meta author="stephen ball">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" type="image/x-icon" href="/favicon.ico">
-  	<link rel="stylesheet" type="text/css" href="../styles/style.css">
+  	<link rel="stylesheet" type="text/css" href="/styles/style.css">
  	<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
- 	<link href='https://fonts.googleapis.com/css?family=Roboto+Mono' rel='stylesheet' type='text/css'>
 		<title>Sea | not operational</title>
 </head>
 <body>
@@ -17,7 +16,7 @@
 			<nav>				
 				<a class="current" href="/">things</a><a href="https://github.com/4lefts">github</a><a href="/contact">contact</a>
 			</nav>
-			<h5 class="date">07 04 2016</h5>
+			<h5 class="date">29 08 2016</h5>
 		</header>
 		
 			<div id="sketchContainer"></div>
@@ -26,7 +25,7 @@
 			<h1>Sea</h1>
 			<p><p>An additive ambient soundscape synthesizer. Click to start; leave to stand.</p>
 <p><a href="https://en.wikipedia.org/wiki/Additive_synthesis">Additive synthesis</a> doesn’t get talked about much. It feels like a poor relation to fm, since you need a lot more oscillators to get a similar result, and it’s not immediately obvious how you’re going to control them all. What can you do? Multi-breakpoint envelopes and individual detuning control for dozens partial would be interesting, but it would be way too much effort to program and would probably feel like shooting in the dark. </p>
-<p>This program has 8 oscillators generating sine waves, and the amplitude of each morphs randomly over time. Each oscillator’s frequency is an integer multiple of the fundamental (which is itself a randomly chosen midi note from 23 to 40 (b0 to e2), somewhere around the bottom of a 5 string bass). Every so often the fundamental shifts, and a certain amount of random detuning is added or subtracted from the frequency of each partial. Sometimes a lot.</p>
+<p>This program has 12 oscillators generating sine waves, and the amplitude of each morphs randomly over time. Each oscillator’s frequency is an integer multiple of the fundamental (which is itself a randomly chosen midi note from 23 to 40 (b0 to e2), somewhere around the bottom of a 5 string bass). Every so often the fundamental shifts, choosing a new note from the minor pentatonic scale, and a certain amount of random detuning is added or subtracted from the frequency of each partial. Sometimes a lot.</p>
 <p>My personal favourite drone sounds come from this detuning. Too much, with too many partials, at too high a pitch, sounds too shrill for me, but low down, I like the metallic drones it makes.</p>
 <p>Built using the <a href="https://p5js.org">p5js</a> library and <a href="http://p5js.org/reference/#/libraries/p5.sound">p5js.sound</a>. </p>
 <p><a href="https://github.com/4lefts/sea">Source here</a></p>
@@ -37,10 +36,10 @@
 	<footer>
 	<p><a href="http://notoperational.com">Not Operational</a> by Stephen Ball, &copy;2016</p>
 	</footer>
-		<script src="../scripts/p5/p5.js" type="text/javascript"></script>
-		<script src="../scripts/p5/p5.sound.js" type="text/javascript"></script>
-		<script src="../scripts/p5/p5.dom.js" type="text/javascript"></script>
-		<script src="../scripts/sea.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.min.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/addons/p5.dom.min.js" type="text/javascript"></script>
+	<script src="https://tonejs.github.io/CDN/latest/Tone.min.js"type="text/javascript"></script>
+	<script src="../scripts/sea.js" type="text/javascript"></script>
 
 </body>
 </html>

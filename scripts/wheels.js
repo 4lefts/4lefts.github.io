@@ -57,7 +57,7 @@ new p5(function(p){
 
 		//make div to display fund freq
 		var hzDisplay = p.createDiv(fund.toFixed(2) + 'hz')
-		hzDisplay.addClass('label')
+		hzDisplay.addClass('wheelsLabel')
 
 		//bind listener functions to clicking on this canvas element
 		canvas.mouseClicked(canvasClicked)
@@ -257,7 +257,7 @@ new p5(function(p){
 		var bLeft = p.createDiv('maj')
 		var bRight = p.createDiv('min')
 		var handle = p.createDiv('')
-		button.id('btn')
+		button.id('wheelsBtn')
 		bLeft.id('btnL')
 		bRight.id('btnR')
 		handle.id('buttonHandle')
