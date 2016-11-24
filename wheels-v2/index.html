@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+	<meta charset="UTF-8">
+	<meta author="stephen ball">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+  	<link rel="stylesheet" type="text/css" href="/styles/style.css">
+ 	<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
+		<title>Wheels V2 | not operational</title>
+</head>
+<body>
+
+	<div id="container">
+		<header>
+			<nav>				
+				<a class="current" href="/">things</a><a href="https://github.com/4lefts">github</a><a href="/contact">contact</a>
+			</nav>
+			<h5 class="date">24 11 2016</h5>
+		</header>
+		
+			<div id="sketchContainer"></div>
+		
+		<div id="content">
+			<h1>Wheels V2</h1>
+			<p><p>Another go at creating a meditative web app that plays cyclical sine waves. Currently plays a major scale centered around a3 (220hz).</p>
+<p>It uses <a href="https://en.wikipedia.org/wiki/Pythagorean_tuning">pythagorean tuning</a> to create the scale.</p>
+<p>##To Dos</p>
+<ul>
+<li>Add more scales, and a selection input to choose between them. The number of nodes will need to update.</li>
+<li>Better visualisation - adding in more to the analysis of the playing sound.</li>
+<li>Improve synthesis to add in harmonics. See samples of Tibetan singing bowls for ideas. </li>
+<li>Sort out the panning - at the moment it’s just randomised for each node between -1 and 1. The nodes should really be panned according to their positions around the wheel.</li>
+<li>Performance (especially on mobile). This is using <a href="https://github.com/Tonejs/Tone.js">tone.js</a>, so performance is <em>a lot</em> better than using the p5 sound library, but it could be a lot better still. Reduce frame rate?</li>
+</ul>
+</p>
+		</div><!--end content div> -->
+	</div><!-- end container div -->
+	
+	<footer>
+	<p><a href="http://notoperational.com">Not Operational</a> by Stephen Ball, &copy;2016</p>
+	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/p5.min.js" type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.3/addons/p5.dom.min.js" type="text/javascript"></script>
+	<script src="https://tonejs.github.io/CDN/latest/Tone.min.js"type="text/javascript"></script>
+	<script src="../scripts/wheels2.js" type="text/javascript"></script>
+
+</body>
+</html>
