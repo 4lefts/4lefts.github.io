@@ -1,0 +1,36 @@
+  <!DOCTYPE html>
+  <html lang="en-GB">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet"><link rel="stylesheet" href="/css/style.css">
+      <title>Not Operational</title>
+    </head>
+    <body>
+      <div class="wrapper">
+        <div class="container"> <!-- start of content container-->
+  <nav>
+    <a href="/">home</a><a href="/posts">posts</a><a href="https://github.com/4lefts">github</a><a href="/contact">contact</a>
+  </nav>
+    <h1>Wheels V2</h1>
+      <h4>By Stephen Ball, 24 November 2016</h4>
+    <p>Another go at creating a meditative web app that plays cyclical sine waves. Currently plays a major scale centered around a3 (220hz). It’s <a href="http://notoperational.com/wheelsV2">here</a>.</p>
+<p>It uses <a href="https://en.wikipedia.org/wiki/Pythagorean_tuning">pythagorean tuning</a> to create the scale.</p>
+<h2 id="to-dos-">To Dos:</h2>
+<ul>
+<li>Add more scales, and a selection input to choose between them. The number of nodes will need to update.</li>
+<li>Better visualisation - adding in more to the analysis of the playing sound.</li>
+<li>Improve synthesis to add in harmonics. See samples of Tibetan singing bowls for ideas.</li>
+<li>Sort out the panning - at the moment it’s just randomised for each node between -1 and 1. The nodes should really be panned according to their positions around the wheel.</li>
+<li>Performance (especially on mobile). This is using <a href="https://github.com/Tonejs/Tone.js">tone.js</a>, so performance is <em>a lot</em> better than using the p5 sound library, but it could be a lot better still. Reduce frame rate?</li>
+</ul>
+<p>Source <a href="https://github.com/4lefts/wheelsV2">here</a>.</p>
+
+        </div><!-- end of contianer div-->
+        <div class="container">
+          <footer>Stephen Ball - 2017</footer>
+        </div><!-- end of contianer div-->
+      </div><!-- end wrapper div>
+    </body>
+  </html>

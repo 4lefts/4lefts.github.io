@@ -1,0 +1,31 @@
+  <!DOCTYPE html>
+  <html lang="en-GB">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet"><link rel="stylesheet" href="/css/style.css">
+      <title>Not Operational</title>
+    </head>
+    <body>
+      <div class="wrapper">
+        <div class="container"> <!-- start of content container-->
+  <nav>
+    <a href="/">home</a><a href="/posts">posts</a><a href="https://github.com/4lefts">github</a><a href="/contact">contact</a>
+  </nav>
+    <h1>Sea</h1>
+      <h4>By Stephen Ball, 29 August 2016</h4>
+    <p>Sea is a simple soundscape/drone synth; you can find the app <a href="http://notoperational.com/sea">here</a>.</p>
+<p><a href="https://en.wikipedia.org/wiki/Additive_synthesis">Additive synthesis</a> doesn’t get talked about much. It feels like a poor relation to fm, since you need a lot more oscillators to get a similar result, and it’s not immediately obvious how you’re going to control them all. What can you do? Multi-breakpoint envelopes and individual detuning control for dozens partials would be interesting, but it would be way too much effort to program and would probably feel like shooting in the dark.</p>
+<p>This program has 12 oscillators generating sine waves, and the amplitude of each morphs randomly over time. Each oscillator’s frequency is an integer multiple of the fundamental (which is itself a randomly chosen midi note from 23 to 40 (b0 to e2), somewhere around the bottom of a 5 string bass). Every so often the fundamental shifts, choosing a new note from the minor pentatonic scale, and a certain amount of random detuning is added or subtracted from the frequency of each partial. Sometimes a lot.</p>
+<p>My personal favourite drone sounds come from this detuning. Too much, with too many partials, at too high a pitch, sounds too shrill for me, but low down, I like the metallic drones it makes.</p>
+<p><strong>Note:</strong> this is a re-write of the original version of the sea app, using <a href="https://github.com/Tonejs/Tone.js">tone.js</a>. The performance is a lot better than it was using the p5 sound library. The visuals are built with the <a href="https://p5js.org">p5js</a> library.</p>
+<p><a href="https://github.com/4lefts/sea">Source here</a></p>
+
+        </div><!-- end of contianer div-->
+        <div class="container">
+          <footer>Stephen Ball - 2017</footer>
+        </div><!-- end of contianer div-->
+      </div><!-- end wrapper div>
+    </body>
+  </html>

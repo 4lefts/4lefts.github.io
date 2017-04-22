@@ -1,30 +1,21 @@
-<!DOCTYPE html>
-<html lang="en-GB">
-<head>
-	<meta charset="UTF-8">
-	<meta author="stephen ball">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" type="image/x-icon" href="/favicon.ico">
-  	<link rel="stylesheet" type="text/css" href="/styles/style.css">
-  		<link rel="stylesheet" type="text/css" href="/styles/wheelsButton.css">
- 	<link href='https://fonts.googleapis.com/css?family=Roboto:300' rel='stylesheet' type='text/css'>
-		<title>Wheels | not operational</title>
-</head>
-<body>
-
-	<div id="container">
-		<header>
-			<nav>				
-				<a class="current" href="/">things</a><a href="https://github.com/4lefts">github</a><a href="/contact">contact</a>
-			</nav>
-			<h5 class="date">03 08 2016</h5>
-		</header>
-		
-			<div id="sketchContainer"></div>
-		
-		<div id="content">
-			<h1>Wheels</h1>
-			<p><p>A drone synthesizer <em>very</em> loosely based on the idea of Tibetan singing bowls.</p>
+  <!DOCTYPE html>
+  <html lang="en-GB">
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="https://fonts.googleapis.com/css?family=Pontano+Sans" rel="stylesheet"><link rel="stylesheet" href="/css/style.css">
+      <title>Not Operational</title>
+    </head>
+    <body>
+      <div class="wrapper">
+        <div class="container"> <!-- start of content container-->
+  <nav>
+    <a href="/">home</a><a href="/posts">posts</a><a href="https://github.com/4lefts">github</a><a href="/contact">contact</a>
+  </nav>
+    <h1>Wheels</h1>
+      <h4>By Stephen Ball, 03 August 2016</h4>
+    <p>I wrote a drone synthesizer <em>very</em> loosely based on the idea of Tibetan singing bowls. You can find it <a href="http://notoperational.com/wheels">here</a>.</p>
 <p><a href="https://en.wikipedia.org/wiki/Singing_bowl">Tibetan singing bowls</a>. That wikipedia article says that bowls usually produce second and third harmonics: I should probably experiment with the synthesis. Click each wheel to start/stop. The frequency of the fundamental bowl is random between 100 and 400 hz, and the second and third bowls are tuned to the perfect fifth and the either major or minor third using <a href="https://en.wikipedia.org/wiki/Pythagorean_tuning">Pythagorean tuning</a>. Select a major or minor key with the button.</p>
 <p>The colour palette came from the excellent <a href="http://lolcolors.com">lolcolors</a>, and I totally stole the slider button idea from <a href="https://www.youtube.com/user/DevTipsForDesigners/">Devtips’ CSS animations series</a>. Travis Neilson makes the best tutorials there are.</p>
 <h3 id="a-note-on-performance">A note on performance</h3>
@@ -32,17 +23,11 @@
 <h3 id="edit">Edit</h3>
 <p>Apparently, this is all too much for a humble phone. The canvas size might help a little, but not much. There are 9 sine oscillators (carrier, modulator and amplitude lfo for each wheel) here, and the audio breaks up a lot on my android phone. I’m not too sure where to go from here. I might try using tone.js next, skip some of the procedural drawing in p5, and use html elements for the GUI.</p>
 <p><a href="https://github.com/4lefts/wheels">source here</a></p>
-</p>
-		</div><!--end content div> -->
-	</div><!-- end container div -->
-	
-	<footer>
-	<p><a href="http://notoperational.com">Not Operational</a> by Stephen Ball, &copy;2016</p>
-	</footer>
-	<script src="../scripts/p5.0.5.6/p5.min.js" type="text/javascript"></script>
-	<script src="../scripts/p5.0.5.6/p5.dom.min.js" type="text/javascript"></script>
-	<script src="../scripts/p5.0.5.6/p5.sound.min.js" type="text/javascript"></script>
-	<script src="../scripts/wheels.js" type="text/javascript"></script>
 
-</body>
-</html>
+        </div><!-- end of contianer div-->
+        <div class="container">
+          <footer>Stephen Ball - 2017</footer>
+        </div><!-- end of contianer div-->
+      </div><!-- end wrapper div>
+    </body>
+  </html>
