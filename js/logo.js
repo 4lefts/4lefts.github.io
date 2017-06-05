@@ -1,13 +1,16 @@
 var holder, holderSize, canvas
 var orbs = []
+var numOrbs = 20
+var minRad = 10
+var maxRad = 70
 
 function setup(){
   holder = select('#logo')
   holderSize = holder.size()
   canvas = createCanvas(holderSize.width, 240)
   canvas.parent('#logo')
-  for(var i = 0; i < 20; i++){
-    orbs[i] = new Orb(random(width), random(height), random(10, 70))
+  for(var i = 0; i < numOrbs; i++){
+    orbs[i] = new Orb(random(width), random(height), random(minRad, maxRad))
   }
 }
 
@@ -18,9 +21,11 @@ function windowResized(){
 
 function draw(){
   background(255)
-  orbs.forEach(function(orb){
+  orbs.forEach(function(orb, i, arr){
     orb.update()
     orb.render()
+    orb.checkDist(arr)
+    orb.drawLines()
   })
 }
 
@@ -41,7 +46,29 @@ Orb.prototype.update = function(){
 }
 
 Orb.prototype.render = function(){
+  push()
   noStroke()
   fill(50, 150, 200, 100)
   ellipse(this.loc.x, this.loc.y, this.r)
+  pop()
+}
+
+Orb.prototype.checkDist = function(orbs){
+  this.dists = orbs.map((orb) => {
+      return this.loc.dist(orb.loc) < this.r * 2 ? orb.loc : false
+  }).filter((elem) => {
+    return elem != false
+  })
+}
+
+Orb.prototype.drawLines = function(){
+  this.dists.forEach((dst) => {
+    push()
+    noFill()
+    // stroke(50, 150, 200, 200)
+    strokeWeight(1)
+    stroke(0, Math.abs(this.loc.dist(dst) * -1))
+    line(this.loc.x, this.loc.y, dst.x, dst.y)
+    pop()
+  })
 }
