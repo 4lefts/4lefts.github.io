@@ -513,14 +513,15 @@ nav a:hover {
   color: #FF5722;
 }
 
-#logo {
+#orbs {
   position: relative;
   height: 240px;
   display: flex;
   align-items: center;
 }
 
-#logo h1 {
+#orbs h1#logo {
+  color: #222;
   line-height: 100%;
   font-size: 15vmin;
   margin: 0;
@@ -528,14 +529,14 @@ nav a:hover {
   z-index: 100;
 }
 
-#logo h1 span {
+#orbs h1#logo span {
   color: #FF5722;
 }
 
-#logo canvas {
+#orbs canvas {
+  z-index: -1;
   position: absolute;
   top: 0;
-  z-index: -1;
   overflow: hidden;
 }
 

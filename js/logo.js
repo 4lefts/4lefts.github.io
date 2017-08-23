@@ -1,22 +1,20 @@
-var holder, holderSize, canvas
+var holder = document.getElementById('orbs')
+var canvas
 var orbs = []
 var numOrbs = 20
 var minRad = 10
 var maxRad = 70
 
 function setup(){
-  holder = select('#logo')
-  holderSize = holder.size()
-  canvas = createCanvas(holderSize.width, 240)
-  canvas.parent('#logo')
+  canvas = createCanvas(holder.offsetWidth, holder.offsetHeight)
+  canvas.parent('#orbs')
   for(var i = 0; i < numOrbs; i++){
     orbs[i] = new Orb(random(width), random(height), random(minRad, maxRad))
   }
 }
 
 function windowResized(){
-  holderSize = holder.size()
-  resizeCanvas(holderSize.width, 240)
+  resizeCanvas(holder.offsetWidth, holder.offsetHeight)
 }
 
 function draw(){
@@ -65,9 +63,8 @@ Orb.prototype.drawLines = function(){
   this.dists.forEach((dst) => {
     push()
     noFill()
-    // stroke(50, 150, 200, 200)
     strokeWeight(1)
-    stroke(0, Math.abs(this.loc.dist(dst) * -1))
+    stroke(34, Math.abs(this.loc.dist(dst) * -1))
     line(this.loc.x, this.loc.y, dst.x, dst.y)
     pop()
   })
